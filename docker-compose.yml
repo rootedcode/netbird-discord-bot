@@ -1,0 +1,9 @@
+services:
+  bot:
+    container_name: netbird-discord-bot
+    build: .
+    restart: unless-stopped
+    dns:
+      - 192.168.68.155
+    env_file:
+      - .env
