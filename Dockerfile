@@ -10,7 +10,10 @@ RUN npm install
 
 FROM node:lts-alpine AS runtime
 
-COPY --from=deps /commands ./commands/
-COPY --from=deps index.js ./index.js
+COPY --from=deps package.json package-lock.json ./
+COPY --from=deps /node_modules ./node_modules
+
+COPY --from=base /commands ./commands
+COPY --from=base index.js ./index.js
 
 CMD ["npm", "start"]
