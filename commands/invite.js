@@ -23,7 +23,6 @@ module.exports = {
                 throw new Error('Invalid Discord username.');
             }
 
-
             // Set your desired NetBird Group ID below in 'auto_groups'.
             
             const response = await fetch(`${process.env.NETBIRD_URL}/api/users/invites`, {
